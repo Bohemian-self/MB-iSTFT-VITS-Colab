@@ -1,9 +1,10 @@
 import re
 import cn2an
 import opencc
+from os.path import join, dirname, abspath
 
-
-converter = opencc.OpenCC('zaonhe')
+dir_paths = abspath(dirname(__file__))
+converter = opencc.OpenCC(join(dir_paths, '../chinese_dialect_lexicons/zaonhe'))
 
 # List of (Latin alphabet, ipa) pairs:
 _latin_to_ipa = [(re.compile('%s' % x[0]), x[1]) for x in [
